@@ -70,8 +70,14 @@ export default function Home({ actionData }: Route.ComponentProps) {
 
   return (
     <div className="max-w-[300px] w-full space-y-6 px-4">
-      <Form method="post">
-        <TextField name="name" label="Name" errorMessage={error} />
+      <Form method="post" noValidate>
+        <TextField
+          name="name"
+          label="Name"
+          isInvalid={!!error}
+          errorMessage={error}
+          // validationBehavior="aria"
+        />
         <Button type="submit">Submit</Button>
       </Form>
     </div>
